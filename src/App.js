@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import mccLogo from './mccLogo.png'
 import './App.css';
 import { useState } from 'react';
 import QRCode from 'react-qr-code';
@@ -63,11 +64,15 @@ function App() {
 
   return (
     <div className="App">
+      <nav>
+        <img src={mccLogo} />
+        <h1>QR Code Generator</h1>
+      </nav>
       <div className='input-div'>
         <input placeholder='Type your link here' value={stringToConvert} onChange={(e) => setStringToConvert(e.target.value)} />
       </div>
       <br />
-      <hr />
+      {/* <hr /> */}
       <div id='qr-div'>
         <QRCode
           ref={qrCodeRef}
@@ -77,12 +82,6 @@ function App() {
           viewBox={`0 0 256 256`}
         />
       </div>
-      <br />
-      {/* <QRCodeSVG ref={qrCodeRef} value={stringToConvert} /> */}
-      <br />
-      {/* <QRCodeCanvas ref={qrCodeRef} value={stringToConvert} /> */}
-      <br />
-      <hr />
       <button onClick={handleDownload}>Download QR Image</button>
     </div>
   );
